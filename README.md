@@ -1,5 +1,10 @@
+
 # Introduction
-This chart bootstraps an emqx deployment on a Kubernetes cluster using the Helm package manager. 
+This chart bootstraps an emqx deployment on a Kubernetes cluster using the Helm package manager. (fork from https://github.com/emqx/emqx-chart)
+
+Add following configurations:
+1. extraVolumes: Extra volumes to attach to the statefulset
+2. extraVolumeMounts: Extra volume mounts to mount to the statefulset
 
 # Prerequisites
 + Kubernetes 1.6+
@@ -41,6 +46,8 @@ The following table lists the configurable parameters of the emqx chart and thei
 | `persistence.existingClaim` | EMQ X data Persistent Volume existing claim name, evaluated as a template |""|
 | `persistence.accessMode` | PVC Access Mode for EMQX volume |ReadWriteOnce|
 | `persistence.size` | PVC Storage Request for EMQX volume |20Mi|
+| `extraVolumes` | Extra volumes to attach to the statefulset | []
+| `extraVolumeMounts` | Extra volume mounts to mount to the statefulset | []
 | `resources` | CPU/Memory resource requests/limits |{}|
 | `service.type`  | Emqx cluster service type. |ClusterIP|
 | `service.mqttPort`  | Emqx cluster MQTT port. |1883|

@@ -23,6 +23,12 @@ persistence:
   ## So, for example, the name can depend on .Release or .Chart
   # existingClaim: ""
 
+## Extra volumes for statefulset
+extraVolumes: []
+
+## Extra volume mounts for statefulset
+extraVolumeMounts: []
+
 resources: {}
   # limits:
   #   cpu: 500m

@@ -62,6 +62,9 @@ spec:
         secret:
           secretName: {{ .Values.emqxLicneseSecretName }}
       {{- end }}
+      {{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 6 }}
+      {{- end }}
       serviceAccountName:  {{ include "emqx.fullname" . }}
       securityContext:
         fsGroup: 1000
@@ -112,6 +115,9 @@ spec:
             subPath: "emqx.lic"
             readOnly: true
           {{ end }}
+          {{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 10 }}
+          {{- end }}
           readinessProbe:
             httpGet:
               path: /status
